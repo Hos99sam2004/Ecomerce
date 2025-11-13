@@ -1,69 +1,54 @@
-
 import 'package:ecomerce/core/utils/app_assets.dart';
 import 'package:ecomerce/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart' show Image;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Onbording1 extends StatelessWidget {
-  const Onbording1({super.key});
+List onboardingData = [
+  {
+    "image": AppAssets.onbording1,
+    "title":
+        "Choose the best products and continue to checkout\n Find your favorites and start shopping now!",
+  },
+  {
+    "image": AppAssets.onbording2,
+    "title":
+        "Complete your purchase securely and quickly😊 . You're almost there! Just make your payment to complete the order😊",
+  },
+  {
+    "image": AppAssets.onbording3,
+    "title":
+        "Your products are almost there — get ready to receive them!\n Excited? Your order is coming soon!🛍️🚚",
+  },
+];
 
+class Onbo extends StatelessWidget {
+  const Onbo({super.key, required this.url, required this.text});
+  final String url;
+  final String text;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(AppAssets.onbording1),
-        Text(
-          "Choose the best products and continue to checkout\n Find your favorites and start shopping now!",
-          style: AppStyles.text,
-        ),
-      ],
-    );
-  }
-}
-
-class Onbording2 extends StatelessWidget {
-  const Onbording2({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(AppAssets.onbording2),
-        Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Text(
-            "Complete your purchase securely and quickly😊 . You're almost there! Just make your payment to complete the order😊",
-            style: AppStyles.text,
+    return SizedBox(
+      height: 0.5.sh,
+      child: Column(
+        children: [
+          Flexible(
+            flex: 6,
+            child: SizedBox(
+              width:  300.w,
+              height: 300.h,
+              child: Image.asset(url, fit: BoxFit.cover),
+            ),
           ),
-        ),
-      ],
-    );
-  }
-}
-
-class Onbording3 extends StatelessWidget {
-  const Onbording3({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(AppAssets.onbording3),
-        Text(
-          "Your products are almost there — get ready to receive them!\n Excited? Your order is coming soon!🛍️🚚",
-          style: AppStyles.text,
-        ),
-      ],
-    );
-  }
-}
-
-/* 
- Column(
-            children: [
-              Image.asset(AppAssets.onbording1),
-              Text("Choose the best products and continue to checkout\n Find your favorites and start shopping now!",style: AppStyles.text,),
-            ],
+          Flexible(
+            flex: 4,
+            child: Text(
+              text,
+              style: (AppStyles.text),
+              textAlign: TextAlign.center,
+            ),
           ),
-          Spacer(),
- */
+        ],
+      ),
+    );
+  }
+}

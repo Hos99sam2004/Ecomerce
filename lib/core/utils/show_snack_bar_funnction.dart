@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void showSnackBarFuction(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(
@@ -9,3 +11,14 @@ void showSnackBarFuction(BuildContext context, String text) {
     ),
   );
 }
+
+void showtoast(String msg, {Color color = Colors.black}) {
+    Fluttertoast.showToast(
+      msg: msg,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: color,
+      textColor: Colors.white,
+      fontSize: 14.sp,
+    );
+  }
